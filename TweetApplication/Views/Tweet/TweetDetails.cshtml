@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TweetApplication.Business.Contracts.Tweet>
+
+@{
+    ViewBag.Title = "Tweet";
+}
+
+<h2>Tweet Details</h2>
+
+<table class="table">
+    @{
+        var tweet = Model.ToList().FirstOrDefault();
+        <tr>
+            <th>@Html.LabelFor(modelItem => tweet.Id)</th>
+            <th>@Html.LabelFor(modelItem => tweet.Text)</th>
+        </tr>
+
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+        </tr>
+    }
+
+</table>
